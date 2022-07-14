@@ -8,7 +8,8 @@ const API_URL = 'https://api.thedogapi.com/v1/';
 
 // HTML ELEMENTS
 const messageNode = document.getElementById('message');
-
+const favoriteDogsContainer = document.getElementById('favoriteDogsContainer');
+const favoriteDogsNode = document.createDocumentFragment();
 
 
 // FUNCTIONS
@@ -62,7 +63,58 @@ async function loadRandomDogs() {
 	}
 }
 
+async function loadFavoriteDogs() {
 
+	favoriteDogsContainer.innerHTML = "";
+	
+	try {
+
+		const res = await fetch(API_URL + 'favourites?', {
+			method: 'GET',
+			headers: {
+				'X-API-KEY': API_KEY 
+			}
+		});
+
+		const data = await res.json();
+		const status = data.status;
+
+		error(status, data);
+
+		data.forEach(item => {
+
+			const card = document.createElement('article');
+			const cardTitle = document.createElement('p');
+			const cardImgContainer = document.createElement('figure');
+			const cardImg = document.createElement('img');
+			const cardDeleteFavBtn = document.createElement('button');
+
+			cardTitle.textContent = 'Puppy';
+			cardImg.setAttribute('src', item.image.url);
+			cardImg.setAttribute('alt', 'Profile picture of a puppy');
+			cardDeleteFavBtn.textContent = 'No Fav';
+
+			card.className = 'card';
+			cardTitle.className = 'card--name';
+			cardImgContainer.className = 'card__imgContainer';
+			cardDeleteFavBtn.className = 'card--favBtn';
+
+			cardImgContainer.append(cardImg);
+			cardImgContainer.append(cardDeleteFavBtn);
+
+			card.append(cardTitle);
+			card.append(cardImgContainer);
+
+			favoriteDogsNode.append(card);
+			favoriteDogsContainer.appendChild(favoriteDogsNode);
+		});
+
+	} catch(error) {
+
+		messageNode.textContent = `${error.message}`;
+		messageNode.className = 'message error';
+	}
+}
 
 async function saveFavoriteDog(id) {
 
@@ -83,15 +135,14 @@ async function saveFavoriteDog(id) {
 		const status = res.status;
 
 		error(status, data);
-
 		loadFavoriteDogs();
 
 	} catch(error) {
 
 		messageNode.textContent = `${error.message}`;
 		messageNode.className = 'message error';
+		console.error(error);
 	}
 }
 
-
-export { loadRandomDogs  };
+export { loadRandomDogs, loadFavoriteDogs };
