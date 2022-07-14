@@ -94,6 +94,8 @@ async function loadFavoriteDogs() {
 			cardImg.setAttribute('alt', 'Profile picture of a puppy');
 			cardDeleteFavBtn.textContent = 'No Fav';
 
+			cardDeleteFavBtn.onclick = () => deleteFavoriteDog(item.id);
+
 			card.className = 'card';
 			cardTitle.className = 'card--name';
 			cardImgContainer.className = 'card__imgContainer';
@@ -141,7 +143,30 @@ async function saveFavoriteDog(id) {
 
 		messageNode.textContent = `${error.message}`;
 		messageNode.className = 'message error';
-		console.error(error);
+	}
+}
+
+async function deleteFavoriteDog(id) {
+
+	try {
+
+		const res = await fetch(API_URL  + `favourites/${id}?`, {
+			method: 'DELETE',
+			headers: {
+				'X-API-KEY': API_KEY 
+			}
+		});
+
+		const data = await res.json();
+		const status = res.status;
+
+		error(status, data);
+		loadFavoriteDogs();
+
+	} catch(error) {
+
+		messageNode.textContent = `${error.message}`;
+		messageNode.className = 'message error';
 	}
 }
 
