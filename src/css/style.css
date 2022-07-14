@@ -164,6 +164,18 @@ footer {
 }
 
 /*MEDIA QUERYS*/
+@media (min-width: 768px) {
+	h2 {
+		margin-left: 40px;
+	}
+}
+
+@media (min-width: 1024px) {
+	h2 {
+		margin-left: 80px;
+	}
+}
+
 @media (hover: hover) {
 	.card--favBtn:hover {
 		cursor: pointer;
