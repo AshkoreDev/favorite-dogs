@@ -79,8 +79,6 @@ async function loadFavoriteDogs() {
 		const data = await res.json();
 		const status = data.status;
 
-		error(status, data);
-
 		data.forEach(item => {
 
 			const card = document.createElement('article');
@@ -108,8 +106,10 @@ async function loadFavoriteDogs() {
 			card.append(cardImgContainer);
 
 			favoriteDogsNode.append(card);
-			favoriteDogsContainer.appendChild(favoriteDogsNode);
 		});
+
+		favoriteDogsContainer.appendChild(favoriteDogsNode);
+		// error(status, data);
 
 	} catch(error) {
 
