@@ -73,7 +73,7 @@ h2 {
 
 .cardsContainer {
 	padding: 40px 10px;
-	gap:  50px;
+	gap:  100px;
 	flex-wrap: wrap;
 }
 
@@ -86,15 +86,6 @@ h2 {
 	border-radius: var(--border-radius);
 	-webkit-box-shadow: 0px 0px 27px 8px rgba(0,0,0,0.3); 
 	box-shadow: 0px 0px 27px 8px rgba(0,0,0,0.3);
-}
-
-.card--name {
-	padding: 5px 0;
-	font-size: 18px;
-	font-weight: bold;
-	text-align: center;
-	letter-spacing: 1.1px;
-	border-radius:  var(--error-color) var(--error-color) 0 0;
 }
 
 .card__imgContainer {
