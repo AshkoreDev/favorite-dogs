@@ -31,24 +31,13 @@ async function loadRandomDogs() {
 
 		error(status, data);
 
-		const titles = document.getElementsByClassName('card--name');
 		const favBtn = document.getElementsByClassName('card--favBtn');
 		const images = document.getElementsByTagName('img');
 
 		for (let i = 0; i < 3; i++) {
 
       images[i].src = data[i].url;
-
-      if (data[i].breeds[0]) {
-
-      	titles[i].textContent = data[i].breeds[0].name;
-      	images[i].alt = `Profile picture of a puppy ${data[i].breeds[0].name}`;
-
-      } else {
-
-      	titles[i].textContent = 'No information';
-      	images[i].alt = 'No information';
-      }
+      images[i].alt = `Profile picture of a puppy.`;
     }
 
     for (let j = 0; j < favBtn.length; j++) {
@@ -82,12 +71,10 @@ async function loadFavoriteDogs() {
 		data.forEach(item => {
 
 			const card = document.createElement('article');
-			const cardTitle = document.createElement('p');
 			const cardImgContainer = document.createElement('figure');
 			const cardImg = document.createElement('img');
 			const cardDeleteFavBtn = document.createElement('button');
 
-			cardTitle.textContent = 'Puppy';
 			cardImg.setAttribute('src', item.image.url);
 			cardImg.setAttribute('alt', 'Profile picture of a puppy');
 			cardDeleteFavBtn.textContent = 'No Fav';
@@ -95,14 +82,12 @@ async function loadFavoriteDogs() {
 			cardDeleteFavBtn.onclick = () => deleteFavoriteDog(item.id);
 
 			card.className = 'card';
-			cardTitle.className = 'card--name';
 			cardImgContainer.className = 'card__imgContainer';
 			cardDeleteFavBtn.className = 'card--favBtn';
 
 			cardImgContainer.append(cardImg);
 			cardImgContainer.append(cardDeleteFavBtn);
 
-			card.append(cardTitle);
 			card.append(cardImgContainer);
 
 			favoriteDogsNode.append(card);
