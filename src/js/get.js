@@ -38,6 +38,7 @@ async function loadRandomDogs() {
 
       images[i].src = data[i].url;
       images[i].alt = `Profile picture of a puppy.`;
+      images[i].setAttribute('loading', 'lazy');
     }
 
     for (let j = 0; j < favBtn.length; j++) {
@@ -77,6 +78,7 @@ async function loadFavoriteDogs() {
 
 			cardImg.setAttribute('src', item.image.url);
 			cardImg.setAttribute('alt', 'Profile picture of a puppy');
+			cardImg.setAttribute('loading', 'lazy');
 			cardDeleteFavBtn.textContent = 'No Fav';
 
 			cardDeleteFavBtn.onclick = () => deleteFavoriteDog(item.id);
