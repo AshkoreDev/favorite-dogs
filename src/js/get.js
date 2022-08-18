@@ -36,8 +36,8 @@ async function loadRandomDogs() {
 
 		for (let i = 0; i < 3; i++) {
 
-      images[i].src = data[i].url;
-      images[i].alt = `Profile picture of a puppy.`;
+      images[i].setAttribute('src', data[i].url);
+      images[i].setAttribute('alt', 'Profile picture of a puppy.');
       images[i].setAttribute('loading', 'lazy');
     }
 
