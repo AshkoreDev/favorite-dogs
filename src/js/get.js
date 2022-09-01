@@ -87,8 +87,7 @@ async function loadFavoriteDogs() {
 			cardImgContainer.className = 'card__imgContainer';
 			cardDeleteFavBtn.className = 'card--favBtn';
 
-			cardImgContainer.append(cardImg);
-			cardImgContainer.append(cardDeleteFavBtn);
+			cardImgContainer.append(cardImg, cardDeleteFavBtn);
 
 			card.append(cardImgContainer);
 
