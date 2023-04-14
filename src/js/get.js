@@ -31,8 +31,6 @@ async function loadRandomDogs() {
 
 		error(status, data);
 
-		console.log(data)
-
 		const favBtn = document.getElementsByClassName('favBtn');
 		const images = document.getElementsByTagName('img');
 
