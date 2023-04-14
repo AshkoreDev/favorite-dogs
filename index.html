@@ -2,8 +2,10 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="Proyecto para practicar consumo de API's. Favorite-Dogs página web para ver fotos de perritos.">
+  <meta name="author" content="Aracely Alba @AshkoreDev">
+	<meta name="description" content="Favorite-Dogs website to see photos of puppies. Project to practice APIs consumption.">
+	<meta name="keywords" content="HTML, CSS, JavaScript">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="icon" type="image/png" href="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/344/external-dog-animal-flaticons-lineal-color-flat-icons-2.png">
 	<title>Favorite Dogs</title>
 	<link rel="stylesheet" href="./src/css/style.css">
@@ -27,48 +29,51 @@
 			<article class="card">
 				<figure class="card__imgContainer">
 					<img>
-					<button class="card--favBtn">Fav</button>
+					<button class="favBtn favBtn--green">Fav</button>
 				</figure>
 			</article>
 
 			<article class="card">
 				<figure class="card__imgContainer">
 					<img>
-					<button class="card--favBtn">Fav</button>
+					<button class="favBtn favBtn--green">Fav</button>
 				</figure>
 			</article>
 
 			<article class="card">
 				<figure class="card__imgContainer">
 					<img>
-					<button class="card--favBtn">Fav</button>
+					<button class="favBtn favBtn--green">Fav</button>
 				</figure>
 			</article>
 
 		</section>
+
 		<section class="center">
-			<input type="button" value="Load more" class="loadRandom--btn" id="loadRandom">
+			<button class="loadRandom--btn" id="loadRandom">Load more</button>
 		</section>
 
 		<h2>Favorite Dogs</h2>
 		<section class="cardsContainer center" id="favoriteDogsContainer"></section>
 
 	</main>
+
 	<footer>
 		<div class="footer__socialMedia">
       <a title="Linkedin" href="https://www.linkedin.com/in/AshkoreDev/" target="_blank" rel="noopener" class="footer__socialMedia--icon">
-        <img src="https://img.icons8.com/ios-filled/30/000000/linkedin.png" alt="Logo Linkedin" width="30" height="30"/>
+        <img src="https://img.icons8.com/ios-filled/30/000000/linkedin.png" alt="Logo Linkedin" width="30" height="30" loading="lazy"/>
       </a>
       <a title="GitHub" href="https://github.com/AshkoreDev" target="_blank" rel="noopener" class="footer__socialMedia--icon">
-        <img src="https://img.icons8.com/ios-filled/30/000000/github.png" alt="Logo GitHub" width="30" height="30"/>
+        <img src="https://img.icons8.com/ios-filled/30/000000/github.png" alt="Logo GitHub" width="30" height="30" loading="lazy"/>
       </a>
       <a title="Twitter" href="https://twitter.com/AshkoreDev" target="_blank" rel="noopener" class="footer__socialMedia--icon">
-        <img src="https://img.icons8.com/ios-glyphs/30/000000/twitter--v1.png" alt="Logo Twitter" width="30" height="30"/>
+        <img src="https://img.icons8.com/ios-glyphs/30/000000/twitter--v1.png" alt="Logo Twitter" width="30" height="30" loading="lazy"/>
       </a>
     </div>
     <p class="footer__info">Aracely Alba @AshkoreDev || &copy; 2022</p>
 	</footer>
 	
-	<script src="./src/main.js" type="module"></script>
+	<script src="./src/main.js" type="module" defer></script>
+
 </body>
 </html>

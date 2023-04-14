@@ -2,7 +2,7 @@ import { API_KEY } from './key.js';
 
 
 // API CONFIG
-const queryString = ['?', 'limit=3', '&'].join('');
+const queryString = ['?', 'limit=3', '&', 'size=small', '&', 'mime_types=jpg'].join('');
 const API_URL = 'https://api.thedogapi.com/v1/';
 
 
@@ -22,7 +22,7 @@ function error(status, data) {
 }
 
 async function loadRandomDogs() {
-
+	
 	try {
 
 		const res = await fetch(API_URL + `images/search${queryString}`);
@@ -31,14 +31,15 @@ async function loadRandomDogs() {
 
 		error(status, data);
 
-		const favBtn = document.getElementsByClassName('card--favBtn');
+		console.log(data)
+
+		const favBtn = document.getElementsByClassName('favBtn');
 		const images = document.getElementsByTagName('img');
 
 		for (let i = 0; i < 3; i++) {
 
       images[i].setAttribute('src', data[i].url);
       images[i].setAttribute('alt', 'Profile picture of a puppy.');
-      images[i].setAttribute('loading', 'lazy');
     }
 
     for (let j = 0; j < favBtn.length; j++) {
@@ -85,7 +86,7 @@ async function loadFavoriteDogs() {
 
 			card.className = 'card';
 			cardImgContainer.className = 'card__imgContainer';
-			cardDeleteFavBtn.className = 'card--favBtn';
+			cardDeleteFavBtn.className = 'favBtn favBtn--red';
 
 			cardImgContainer.append(cardImg, cardDeleteFavBtn);
 
